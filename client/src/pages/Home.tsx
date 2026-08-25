@@ -7,12 +7,14 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/contexts/ThemeContext";
 
+const publicAsset = (file: string) => `${import.meta.env.BASE_URL}assets/${file}`;
+
 const units = [
-  { number: "01", title: "Living Well in a Complex World", arabic: "العيش بصحة في عالم معقد", image: "/assets/unit-1.jpg" },
-  { number: "02", title: "Leisure Time", arabic: "وقت الفراغ", image: "/assets/unit-2.jpg" },
-  { number: "03", title: "Echoes of the Past", arabic: "أصداء الماضي", image: "/assets/unit-3.jpg" },
-  { number: "04", title: "The Power of Choice", arabic: "قوة الاختيار", image: "/assets/unit-4.jpg" },
-  { number: "05", title: "The Greenhouse Effect", arabic: "الأثر البيئي", image: "/assets/unit-5.jpg" },
+  { number: "01", title: "Living Well in a Complex World", arabic: "العيش بصحة في عالم معقد", image: publicAsset("unit-1.jpg") },
+  { number: "02", title: "Leisure Time", arabic: "وقت الفراغ", image: publicAsset("unit-2.jpg") },
+  { number: "03", title: "Echoes of the Past", arabic: "أصداء الماضي", image: publicAsset("unit-3.jpg") },
+  { number: "04", title: "The Power of Choice", arabic: "قوة الاختيار", image: publicAsset("unit-4.jpg") },
+  { number: "05", title: "The Greenhouse Effect", arabic: "الأثر البيئي", image: publicAsset("unit-5.jpg") },
 ];
 
 export default function Home() {
@@ -28,7 +30,7 @@ export default function Home() {
       cardDivider: "border-white/10",
       surface: "bg-[#0C1A20]/80",
       route: "bg-[#63C7C2]",
-      logo: "/assets/el-moasser.png",
+      logo: publicAsset("el-moasser.png"),
       logoFrame: "from-[#0B1A20]/0 via-[#0B1A20]/0 to-[#0B1A20]/0",
     }
     : {
@@ -40,7 +42,7 @@ export default function Home() {
       cardDivider: "border-[#E7E3DC]",
       surface: "bg-white/65",
       route: "bg-[#087E8B]",
-      logo: "/assets/el-moasser.png",
+      logo: publicAsset("el-moasser.png"),
       logoFrame: "from-transparent via-transparent to-transparent",
     };
 

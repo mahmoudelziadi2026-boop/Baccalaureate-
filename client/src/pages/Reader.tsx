@@ -76,6 +76,7 @@ type ListeningOverride = Record<string, { paragraphs: Paragraph[] }>;
 const lessons = rawLessonData as Lesson[];
 const listeningOverrides = rawListeningOverrides as ListeningOverride;
 const evidenceMap = rawEvidenceMap as Record<string, string>;
+const publicAsset = (file: string) => `${import.meta.env.BASE_URL}assets/${file}`;
 
 const unitMeta: Record<string, { title: string; arabic: string; eyebrow: string }> = {
   "1": { title: "Living Well in a Complex World", arabic: "العيش بصحة في عالم معقد", eyebrow: "Well-being" },
@@ -86,25 +87,25 @@ const unitMeta: Record<string, { title: string; arabic: string; eyebrow: string 
 };
 
 const originalAudio: Record<string, string> = {
-  "1.1": "/assets/unit1Lesson1.mp3",
-  "1.4": "/assets/unit1Lesson4.mp3",
-  "2.1": "/assets/unit2Lesson1.mp3",
-  "2.3": "/assets/unit2Lesson3.mp3",
-  "3.1": "/assets/unit3Lesson1.mp3",
-  "3.4": "/assets/unit3Lesson4.mp3",
-  "4.3": "/assets/unit4Lesson3.mp3",
-  "5.2": "/assets/unit5Lesson2.mp3",
-  "5.3": "/assets/unit5Lesson3.mp3",
+  "1.1": publicAsset("unit1Lesson1.mp3"),
+  "1.4": publicAsset("unit1Lesson4.mp3"),
+  "2.1": publicAsset("unit2Lesson1.mp3"),
+  "2.3": publicAsset("unit2Lesson3.mp3"),
+  "3.1": publicAsset("unit3Lesson1.mp3"),
+  "3.4": publicAsset("unit3Lesson4.mp3"),
+  "4.3": publicAsset("unit4Lesson3.mp3"),
+  "5.2": publicAsset("unit5Lesson2.mp3"),
+  "5.3": publicAsset("unit5Lesson3.mp3"),
 };
 
 const generatedReadingAudio: Record<string, string> = {
-  "1.1::passage-1": "/assets/reading-unit1-lesson1-intro.wav",
+  "1.1::passage-1": publicAsset("reading-unit1-lesson1-intro.wav"),
 };
 
 const unitImages: Partial<Record<string, string>> = {
-  "1": "/assets/unit-1.jpg",
-  "3": "/assets/unit-3.jpg",
-  "5": "/assets/unit-5.jpg",
+  "1": publicAsset("unit-1.jpg"),
+  "3": publicAsset("unit-3.jpg"),
+  "5": publicAsset("unit-5.jpg"),
 };
 
 const lessonNumber = (lesson: Lesson) => {
@@ -348,7 +349,7 @@ export default function Home() {
       <header className="sticky top-0 z-30 border-b border-[#E8E4DD] bg-[#FCFBF7]/95 backdrop-blur">
         <div className="mx-auto flex max-w-[1600px] items-center justify-between px-3 py-2.5 sm:px-7 sm:py-3">
           <div className="flex items-center gap-2.5" dir="ltr">
-            <img src="/assets/gps-logo.png" alt="GPS" className="h-10 w-auto object-contain mix-blend-multiply dark:mix-blend-normal sm:h-14" />
+            <img src={publicAsset("gps-logo.png")} alt="GPS" className="h-10 w-auto object-contain mix-blend-multiply dark:mix-blend-normal sm:h-14" />
             <span className="rounded-full border border-[#BFE4E8] bg-[#F1FBFC] px-2.5 py-1 font-['DM_Sans'] text-[10px] font-bold tracking-[0.12em] text-[#087E8B] sm:hidden">EFL READER</span>
           </div>
           <span className="rounded-full bg-[#EDF8F6] px-3 py-1.5 text-xs font-bold text-[#087E8B] sm:hidden" dir="ltr">U{selectedUnit} · L{currentLessonNumber}</span>
